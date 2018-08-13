@@ -24,7 +24,18 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 
-import sunypoly.kanallr.com.pathfindermasterReborn.javalogic.*;
+import sunypoly.kanallr.com.pathfindermasterReborn.CharacterFragments.FragmentBarbarianMake;
+import sunypoly.kanallr.com.pathfindermasterReborn.CharacterFragments.FragmentBardMake;
+import sunypoly.kanallr.com.pathfindermasterReborn.CharacterFragments.FragmentClericMake;
+import sunypoly.kanallr.com.pathfindermasterReborn.CharacterFragments.FragmentDruidMake;
+import sunypoly.kanallr.com.pathfindermasterReborn.CharacterFragments.FragmentFighterMake;
+import sunypoly.kanallr.com.pathfindermasterReborn.CharacterFragments.FragmentMonkMake;
+import sunypoly.kanallr.com.pathfindermasterReborn.CharacterFragments.FragmentPaladinMake;
+import sunypoly.kanallr.com.pathfindermasterReborn.CharacterFragments.FragmentRangerMake;
+import sunypoly.kanallr.com.pathfindermasterReborn.CharacterFragments.FragmentRougeMake;
+import sunypoly.kanallr.com.pathfindermasterReborn.CharacterFragments.FragmentSorcererMake;
+import sunypoly.kanallr.com.pathfindermasterReborn.CharacterFragments.FragmentWizardMake;
+import sunypoly.kanallr.com.pathfindermasterReborn.PCMakerLogic.*;
 
 
 public class navigationDrawerMain extends AppCompatActivity
@@ -39,7 +50,6 @@ public class navigationDrawerMain extends AppCompatActivity
     RangerMake rangerOne;
     RougeMake rougeOne;
     WizardMake wizardOne;
-
 
     int c = 0;
     @Override

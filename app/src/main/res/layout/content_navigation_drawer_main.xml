@@ -8,7 +8,7 @@
     tools:context="sunypoly.kanallr.com.pathfindermasterReborn.navigationDrawerMain"
     tools:showIn="@layout/app_bar_navigation_drawer_main">
     <fragment
-        android:name="sunypoly.kanallr.com.pathfindermasterReborn.FragmentLanding"
+        android:name="sunypoly.kanallr.com.pathfindermasterReborn.CharacterFragments.FragmentLanding"
         android:id ="@+id/fragment_Landing"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
