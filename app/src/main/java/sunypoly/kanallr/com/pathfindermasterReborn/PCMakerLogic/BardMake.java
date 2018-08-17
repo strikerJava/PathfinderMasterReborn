@@ -15,12 +15,10 @@ public class BardMake extends Character {
 
     
    public void spawnLV1Bard(){
-
        basicCharacteristics();
        level = 1;
         hitDie1D = 8;
         ranksPerLevelBase = 6;
-        
         //Randommake level1
         populateStats();
         charWisIntArrange();
@@ -233,7 +231,7 @@ public class BardMake extends Character {
        totalBardSpells[3] = baseSpellsPerDay[3] + bonusSpells[3];
        totalBardSpells[4] = baseSpellsPerDay[4] + bonusSpells[4];
        totalBardSpells[5] = baseSpellsPerDay[5] + bonusSpells[5];
-        totalBardSpells[6] = baseSpellsPerDay[6];
+       totalBardSpells[6] = baseSpellsPerDay[6];
        
     }
     
@@ -243,249 +241,269 @@ public class BardMake extends Character {
     }
     public void levelUpSpecifics(int lv){
           switch (lv) {
-          case 2:{
-              baseAttackBonus[0] = 1;
-              baseRefSave = 3;
-              baseWillSave = 3;
-              LevelSavesUpdate();
-              bardSpellsKnown(level);
-              baseSpellsPerDay(level);
-              bardTotalSpells();
-              addToSpecialSkills("Versatile performance(1)");
-              addToSpecialSkills("well-versed");
-              HitDieUpdate(hitDie1D, characterMods[2]);
-              LevelAttackBonusUpdate();
-                  break;}
-          case 3:{
-               baseAttackBonus[0] = 2;
-               baseFortSave = 1;
-               LevelSavesUpdate();
-               bardSpellsKnown(level);
-               baseSpellsPerDay(level);
-               bardTotalSpells();
-               addToSpecialSkills("Inspire competence(+2)");
-               HitDieUpdate(hitDie1D, characterMods[2]);
-              LevelAttackBonusUpdate();
-                  break;}
-          case 4:{
-              characterStats[5] = characterStats[5] + 1;
-              updateMods();
-               bonusSpellPerDay(characterStats[5]);
-              baseAttackBonus[0] = 3;
-              baseRefSave = 4;
-              baseWillSave = 4;
-              LevelSavesUpdate();
-              bardSpellsKnown(level);
-              baseSpellsPerDay(level);
-              bardTotalSpells();
-              HitDieUpdate(hitDie1D, characterMods[2]);
-              LevelAttackBonusUpdate();
-                  break;}
-          case 5:{
-              bardSpellsKnown(level);
-              baseSpellsPerDay(level);
-              bardTotalSpells();
-              replaceASpecialSkill("Inspire courage(+1)", "Inspire courage(+2)");
-              addToSpecialSkills("Lore Master (1/Day)");
-              HitDieUpdate(hitDie1D, characterMods[2]);
-              LevelAttackBonusUpdate();
-                  break;}
-          case 6:{
-              baseAttackBonus[0] = 4;
-              baseFortSave = 2;
-              baseRefSave = 5;
-              baseWillSave = 5;
-              LevelSavesUpdate();
-              bardSpellsKnown(level);
-              baseSpellsPerDay(level);
-              bardTotalSpells();
-              addToSpecialSkills("Suggestion");
-              addToSpecialSkills("Versatile Performance(2)");
-              HitDieUpdate(hitDie1D, characterMods[2]);
-              LevelAttackBonusUpdate();
-                  break;}
-          case 7:{
-              baseAttackBonus[0] = 5;
-              bardSpellsKnown(level);
-              baseSpellsPerDay(level);
-              bardTotalSpells();
-              replaceASpecialSkill("Inspire competence(+2)", "Inspire competence(+3)");
-              HitDieUpdate(hitDie1D, characterMods[2]);
-              LevelAttackBonusUpdate();
-                  break;}
-          case 8:{
-              characterStats[5] = characterStats[5] + 1;
-              updateMods();
-               bonusSpellPerDay(characterStats[5]);
-              baseAttackBonus[0] = 6;
-              baseAttackBonus[1] = 1;
-              baseRefSave = 6;
-              baseWillSave = 6;
-              LevelSavesUpdate();
-              bardSpellsKnown(level);
-              baseSpellsPerDay(level);
-              bardTotalSpells();
-              addToSpecialSkills("Dirge of doom");
-              HitDieUpdate(hitDie1D, characterMods[2]);
-              LevelAttackBonusUpdate();
-                  break;}
-          case 9:{
-              baseFortSave = 3;
-              LevelSavesUpdate();
-              bardSpellsKnown(level);
-              baseSpellsPerDay(level);
-              bardTotalSpells();
-              addToSpecialSkills("Inspire greatness");
-              HitDieUpdate(hitDie1D, characterMods[2]);
-              LevelAttackBonusUpdate();
-                  break;}
-          case 10:{
-              baseAttackBonus[0] = 7;
-              baseAttackBonus[1] = 2;
-              baseRefSave = 7;
-              baseWillSave = 7;
-              LevelSavesUpdate();
-              bardSpellsKnown(level);
-              baseSpellsPerDay(level);
-              bardTotalSpells();
-              addToSpecialSkills("Jack-Of-All-Trades");
-              addToSpecialSkills("Versatile performance(3)");
-              HitDieUpdate(hitDie1D, characterMods[2]);
-              LevelAttackBonusUpdate();
-                  break;}
-          case 11:{
-              baseAttackBonus[0] = 8;
-              baseAttackBonus[1] = 3;
-              bardSpellsKnown(level);
-              baseSpellsPerDay(level);
-              bardTotalSpells();
-              replaceASpecialSkill("Inspire competence(+3)", "Inspire competence(+4)");
-              replaceASpecialSkill("Inspire courage(+2)", "Inspire courage(+3)");
-              replaceASpecialSkill("Lore Master (1/Day)", "Lore Master (2/Day)");
-              HitDieUpdate(hitDie1D, characterMods[2]);
-              LevelAttackBonusUpdate();
-                  break;}
-          case 12:{
-              characterStats[2] = characterStats[2] + 1;
-              updateMods();
-              baseAttackBonus[0] = 9;
-              baseAttackBonus[1] = 4;
-              baseFortSave = 4;
-              baseRefSave = 8;
-              baseWillSave = 8;
-              LevelSavesUpdate();
-              bardSpellsKnown(level);
-              baseSpellsPerDay(level);
-              bardTotalSpells();
-              addToSpecialSkills("Soothing performance");
-              HitDieUpdate(hitDie1D, characterMods[2]);
-              LevelAttackBonusUpdate();
-                  break;}
-          case 13:{
-              bardSpellsKnown(level);
-              baseSpellsPerDay(level);
-              bardTotalSpells();
-              HitDieUpdate(hitDie1D, characterMods[2]);
-              LevelAttackBonusUpdate();
-                  break;}
-          case 14:{
-              baseAttackBonus[0] = 10;
-              baseAttackBonus[1] = 5;
-              baseRefSave = 9;
-              baseWillSave = 9;
-              LevelSavesUpdate();
-              bardSpellsKnown(level);
-              baseSpellsPerDay(level);
-              bardTotalSpells();addToSpecialSkills("Frightening tune");
-              addToSpecialSkills("Versatile performance(4)");
-              HitDieUpdate(hitDie1D, characterMods[2]);
-              LevelAttackBonusUpdate();
-              
-                  break;}
-          case 15:{
-              baseAttackBonus[0] = 11;
-              baseAttackBonus[1] = 6;
-              baseAttackBonus[2] = 1;
-              baseFortSave = 5;
-              LevelSavesUpdate();
-              bardSpellsKnown(level);
-              baseSpellsPerDay(level);
-              bardTotalSpells();
-              replaceASpecialSkill("Inspire competence(+4)", "Inspire competence(+5)");
-              addToSpecialSkills("Inspire Heroics");
-              HitDieUpdate(hitDie1D, characterMods[2]);
-              LevelAttackBonusUpdate();
-                  break;}
-          case 16:{
-              characterStats[2] = characterStats[2] + 1;
-              updateMods();
-              baseAttackBonus[0] = 12;
-              baseAttackBonus[1] = 7;
-              baseAttackBonus[2] = 2;
-              baseRefSave = 10;
-              baseWillSave = 10;
-              LevelSavesUpdate();
-              bardSpellsKnown(level);
-              baseSpellsPerDay(level);
-              bardTotalSpells();
-              HitDieUpdate(hitDie1D, characterMods[2]);
-              LevelAttackBonusUpdate();
-                  break;}
-          case 17:{
-              bardSpellsKnown(level);
-              baseSpellsPerDay(level);
-              bardTotalSpells();
-              replaceASpecialSkill("Inspire courage(+3)", "Inspire courage(+4)");
-              replaceASpecialSkill("Lore Master (2/Day)", "Lore Master (3/Day)");
-              HitDieUpdate(hitDie1D, characterMods[2]);
-              LevelAttackBonusUpdate();
-                  break;}
-          case 18:{
-              baseAttackBonus[0] = 13;
-              baseAttackBonus[1] = 8;
-              baseAttackBonus[2] = 3;
-              baseFortSave = 6;
-              baseRefSave = 11;
-              baseWillSave = 11;
-              LevelSavesUpdate();
-              bardSpellsKnown(level);
-              baseSpellsPerDay(level);
-              bardTotalSpells();
-              addToSpecialSkills("Mass suggestion");
-              addToSpecialSkills("Versatile performance(5)");
-              HitDieUpdate(hitDie1D, characterMods[2]);
-              LevelAttackBonusUpdate();
-                  break;}
-          case 19:{
-              baseAttackBonus[0] = 14;
-              baseAttackBonus[1] = 9;
-              baseAttackBonus[2] = 4;
-              bardSpellsKnown(level);
-              baseSpellsPerDay(level);
-              bardTotalSpells();
-              replaceASpecialSkill("Inspire competence(+5)", "Inspire competence(+6)");
-              HitDieUpdate(hitDie1D, characterMods[2]);
-              LevelAttackBonusUpdate();
-                  break;}
-          case 20:{
-              characterStats[1] = characterStats[1] + 1;
-              updateMods();
-              baseAttackBonus[0] = 15;
-              baseAttackBonus[1] = 10;
-              baseAttackBonus[2] = 5;
-              baseRefSave = 12;
-              baseWillSave = 12;
-              LevelSavesUpdate();
-              bardSpellsKnown(level);
-              baseSpellsPerDay(level);
-              bardTotalSpells();
-              addToSpecialSkills("Deadly performance");
-              HitDieUpdate(hitDie1D, characterMods[2]);
-              LevelAttackBonusUpdate();
-                  break;}
-          
-          
+              case 2: {
+                  baseAttackBonus[0] = 1;
+                  baseRefSave = 3;
+                  baseWillSave = 3;
+                  LevelSavesUpdate();
+                  bardSpellsKnown(level);
+                  baseSpellsPerDay(level);
+                  bardTotalSpells();
+                  HitDieUpdate(hitDie1D, characterMods[2]);
+                  LevelAttackBonusUpdate();
+                  addToSpecialSkills("Versatile performance(1)");
+                  addToSpecialSkills("well-versed");
+                  break;
+              }
+              case 3: {
+                  baseFortSave = 1;
+                  baseAttackBonus[0] = 2;
+
+                  LevelSavesUpdate();
+                  bardSpellsKnown(level);
+                  baseSpellsPerDay(level);
+                  bardTotalSpells();
+                  HitDieUpdate(hitDie1D, characterMods[2]);
+                  LevelAttackBonusUpdate();
+                  addToSpecialSkills("Inspire competence(+2)");
+                  break;
+              }
+              case 4: {
+                  baseRefSave = 4;
+                  baseWillSave = 4;
+                  baseAttackBonus[0] = 3;
+                  characterStats[5] = characterStats[5] + 1;
+                  updateMods();
+                  bonusSpellPerDay(characterStats[5]);
+                  LevelSavesUpdate();
+                  bardSpellsKnown(level);
+                  baseSpellsPerDay(level);
+                  bardTotalSpells();
+                  HitDieUpdate(hitDie1D, characterMods[2]);
+                  LevelAttackBonusUpdate();
+                  break;
+              }
+              case 5: {
+                  bardSpellsKnown(level);
+                  baseSpellsPerDay(level);
+                  bardTotalSpells();
+                  HitDieUpdate(hitDie1D, characterMods[2]);
+                  LevelAttackBonusUpdate();
+                  replaceASpecialSkill("Inspire courage(+1)", "Inspire courage(+2)");
+                  addToSpecialSkills("Lore Master (1/Day)");
+                  break;
+              }
+              case 6: {
+                  baseFortSave = 2;
+                  baseRefSave = 5;
+                  baseWillSave = 5;
+                  baseAttackBonus[0] = 4;
+
+                  LevelSavesUpdate();
+                  bardSpellsKnown(level);
+                  baseSpellsPerDay(level);
+                  bardTotalSpells();
+                  addToSpecialSkills("Suggestion");
+                  addToSpecialSkills("Versatile Performance(2)");
+                  HitDieUpdate(hitDie1D, characterMods[2]);
+                  LevelAttackBonusUpdate();
+                  break;
+              }
+              case 7: {
+                  baseAttackBonus[0] = 5;
+                  bardSpellsKnown(level);
+                  baseSpellsPerDay(level);
+                  bardTotalSpells();
+                  replaceASpecialSkill("Inspire competence(+2)", "Inspire competence(+3)");
+                  HitDieUpdate(hitDie1D, characterMods[2]);
+                  LevelAttackBonusUpdate();
+                  break;
+              }
+              case 8: {
+                  baseRefSave = 6;
+                  baseWillSave = 6;
+                  characterStats[5] = characterStats[5] + 1;
+                  updateMods();
+                  bonusSpellPerDay(characterStats[5]);
+                  baseAttackBonus[0] = 6;
+                  baseAttackBonus[1] = 1;
+
+                  LevelSavesUpdate();
+                  bardSpellsKnown(level);
+                  baseSpellsPerDay(level);
+                  bardTotalSpells();
+                  addToSpecialSkills("Dirge of doom");
+                  HitDieUpdate(hitDie1D, characterMods[2]);
+                  LevelAttackBonusUpdate();
+                  break;
+              }
+              case 9: {
+                  baseFortSave = 3;
+                  LevelSavesUpdate();
+                  bardSpellsKnown(level);
+                  baseSpellsPerDay(level);
+                  bardTotalSpells();
+                  addToSpecialSkills("Inspire greatness");
+                  HitDieUpdate(hitDie1D, characterMods[2]);
+                  LevelAttackBonusUpdate();
+                  break;
+              }
+              case 10: {
+                  baseAttackBonus[0] = 7;
+                  baseAttackBonus[1] = 2;
+                  baseRefSave = 7;
+                  baseWillSave = 7;
+                  LevelSavesUpdate();
+                  bardSpellsKnown(level);
+                  baseSpellsPerDay(level);
+                  bardTotalSpells();
+                  addToSpecialSkills("Jack-Of-All-Trades");
+                  addToSpecialSkills("Versatile performance(3)");
+                  HitDieUpdate(hitDie1D, characterMods[2]);
+                  LevelAttackBonusUpdate();
+                  break;
+              }
+              case 11: {
+                  baseAttackBonus[0] = 8;
+                  baseAttackBonus[1] = 3;
+                  bardSpellsKnown(level);
+                  baseSpellsPerDay(level);
+                  bardTotalSpells();
+                  replaceASpecialSkill("Inspire competence(+3)", "Inspire competence(+4)");
+                  replaceASpecialSkill("Inspire courage(+2)", "Inspire courage(+3)");
+                  replaceASpecialSkill("Lore Master (1/Day)", "Lore Master (2/Day)");
+                  HitDieUpdate(hitDie1D, characterMods[2]);
+                  LevelAttackBonusUpdate();
+                  break;
+              }
+              case 12: {
+                  characterStats[2] = characterStats[2] + 1;
+                  updateMods();
+                  baseAttackBonus[0] = 9;
+                  baseAttackBonus[1] = 4;
+                  baseFortSave = 4;
+                  baseRefSave = 8;
+                  baseWillSave = 8;
+                  LevelSavesUpdate();
+                  bardSpellsKnown(level);
+                  baseSpellsPerDay(level);
+                  bardTotalSpells();
+                  addToSpecialSkills("Soothing performance");
+                  HitDieUpdate(hitDie1D, characterMods[2]);
+                  LevelAttackBonusUpdate();
+                  break;
+              }
+              case 13: {
+                  bardSpellsKnown(level);
+                  baseSpellsPerDay(level);
+                  bardTotalSpells();
+                  HitDieUpdate(hitDie1D, characterMods[2]);
+                  LevelAttackBonusUpdate();
+                  break;
+              }
+              case 14: {
+                  baseAttackBonus[0] = 10;
+                  baseAttackBonus[1] = 5;
+                  baseRefSave = 9;
+                  baseWillSave = 9;
+                  LevelSavesUpdate();
+                  bardSpellsKnown(level);
+                  baseSpellsPerDay(level);
+                  bardTotalSpells();
+                  addToSpecialSkills("Frightening tune");
+                  addToSpecialSkills("Versatile performance(4)");
+                  HitDieUpdate(hitDie1D, characterMods[2]);
+                  LevelAttackBonusUpdate();
+
+                  break;
+              }
+              case 15: {
+                  baseAttackBonus[0] = 11;
+                  baseAttackBonus[1] = 6;
+                  baseAttackBonus[2] = 1;
+                  baseFortSave = 5;
+                  LevelSavesUpdate();
+                  bardSpellsKnown(level);
+                  baseSpellsPerDay(level);
+                  bardTotalSpells();
+                  replaceASpecialSkill("Inspire competence(+4)", "Inspire competence(+5)");
+                  addToSpecialSkills("Inspire Heroics");
+                  HitDieUpdate(hitDie1D, characterMods[2]);
+                  LevelAttackBonusUpdate();
+                  break;
+              }
+              case 16: {
+                  characterStats[2] = characterStats[2] + 1;
+                  updateMods();
+                  baseAttackBonus[0] = 12;
+                  baseAttackBonus[1] = 7;
+                  baseAttackBonus[2] = 2;
+                  baseRefSave = 10;
+                  baseWillSave = 10;
+                  LevelSavesUpdate();
+                  bardSpellsKnown(level);
+                  baseSpellsPerDay(level);
+                  bardTotalSpells();
+                  HitDieUpdate(hitDie1D, characterMods[2]);
+                  LevelAttackBonusUpdate();
+                  break;
+              }
+              case 17: {
+                  bardSpellsKnown(level);
+                  baseSpellsPerDay(level);
+                  bardTotalSpells();
+                  replaceASpecialSkill("Inspire courage(+3)", "Inspire courage(+4)");
+                  replaceASpecialSkill("Lore Master (2/Day)", "Lore Master (3/Day)");
+                  HitDieUpdate(hitDie1D, characterMods[2]);
+                  LevelAttackBonusUpdate();
+                  break;
+              }
+              case 18: {
+                  baseAttackBonus[0] = 13;
+                  baseAttackBonus[1] = 8;
+                  baseAttackBonus[2] = 3;
+                  baseFortSave = 6;
+                  baseRefSave = 11;
+                  baseWillSave = 11;
+                  LevelSavesUpdate();
+                  bardSpellsKnown(level);
+                  baseSpellsPerDay(level);
+                  bardTotalSpells();
+                  addToSpecialSkills("Mass suggestion");
+                  addToSpecialSkills("Versatile performance(5)");
+                  HitDieUpdate(hitDie1D, characterMods[2]);
+                  LevelAttackBonusUpdate();
+                  break;
+              }
+              case 19: {
+                  baseAttackBonus[0] = 14;
+                  baseAttackBonus[1] = 9;
+                  baseAttackBonus[2] = 4;
+                  bardSpellsKnown(level);
+                  baseSpellsPerDay(level);
+                  bardTotalSpells();
+                  replaceASpecialSkill("Inspire competence(+5)", "Inspire competence(+6)");
+                  HitDieUpdate(hitDie1D, characterMods[2]);
+                  LevelAttackBonusUpdate();
+                  break;
+              }
+              case 20: {
+                  characterStats[1] = characterStats[1] + 1;
+                  updateMods();
+                  baseAttackBonus[0] = 15;
+                  baseAttackBonus[1] = 10;
+                  baseAttackBonus[2] = 5;
+                  baseRefSave = 12;
+                  baseWillSave = 12;
+                  LevelSavesUpdate();
+                  bardSpellsKnown(level);
+                  baseSpellsPerDay(level);
+                  bardTotalSpells();
+                  addToSpecialSkills("Deadly performance");
+                  HitDieUpdate(hitDie1D, characterMods[2]);
+                  LevelAttackBonusUpdate();
+                  break;
+              }
           }
-        
-    }
+        }
     }   

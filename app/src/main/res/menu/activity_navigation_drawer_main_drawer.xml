@@ -55,9 +55,13 @@
                 android:icon="@drawable/ic_menu_slideshow"
                 android:title="Directory test" />
             <item
-                android:id="@+id/nav_send"
+            android:id="@+id/nav_send"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Send" />
+            <item
+                android:id="@+id/NewLayout"
                 android:icon="@drawable/ic_menu_slideshow"
-                android:title="Send" />
+                android:title="New Layout" />
         </menu>
     </item>
 
