@@ -1,13 +1,13 @@
 # README #
-This is a pull of my capstone from college. I am working as an Android developer now and I think I can make the idea work
-a lot better now then I did then. I think a lot of things went wrong and I want to improve it.  
+This is a pull of my capstone from college. There is a ton that's wrong with this and now that I have some time under my belt as a developer I want to do this better.
+
 ### What is this repository for? ###
 PathfinderMaster, a tool to help people generate a character for Pathfinder as quick as possible.
 Features: 
 	Generate a player character as quick as possible
-
+	Dice rolling
 * Quick summary
-	Hit Generate a character and you get a character. The end
+	Hit generate a character and you get a character. The end
 * Version
 	1.0.0
 	
