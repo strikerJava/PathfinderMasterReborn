@@ -586,78 +586,14 @@ public class Character {
         updateMods();
     }
 
-    public void updateMods() {//There's a better way of doing this. Please redo if time permits
-        int counter = 0;
-        int tmp;
-        while (counter != 6) {
-            tmp = characterStats[counter];
-            switch (tmp) {// switch curtisy of java tutorials
-                case 1:
-                    characterMods[counter] = -5;
-                    break;
-                case 2:
-                    characterMods[counter] = -4;
-                    break;
-                case 3:
-                    characterMods[counter] = -4;
-                    break;
-                case 4:
-                    characterMods[counter] = -3;
-                    break;
-                case 5:
-                    characterMods[counter] = -3;
-                    break;
-                case 6:
-                    characterMods[counter] = -2;
-                    break;
-                case 7:
-                    characterMods[counter] = -2;
-                    break;
-                case 8:
-                    characterMods[counter] = -1;
-                    break;
-                case 9:
-                    characterMods[counter] = -1;
-                    break;
-                case 10:
-                    characterMods[counter] = 0;
-                    break;
-                case 11:
-                    characterMods[counter] = 0;
-                    break;
-                case 12:
-                    characterMods[counter] = 1;
-                    break;
-                case 13:
-                    characterMods[counter] = 1;
-                    break;
-                case 14:
-                    characterMods[counter] = 2;
-                    break;
-                case 15:
-                    characterMods[counter] = 2;
-                    break;
-                case 16:
-                    characterMods[counter] = 3;
-                    break;
-                case 17:
-                    characterMods[counter] = 3;
-                    break;
-                case 18:
-                    characterMods[counter] = 4;
-                    break;
-                case 19:
-                    characterMods[counter] = 4;
-                    break;
-                case 20:
-                    characterMods[counter] = 5;
-                    break;
-                default:
-                    characterMods[counter] = 5;
-                    break;
-            }
-            counter++;
-
+    /**
+     * Class used to generate the character stat modifiers.
+     * 9/17/2018
+     *
+     */
+    public void updateMods(){
+        for(int x =0; x < 6; x++) {
+            characterMods[x] = ((characterStats[x] /2) -5);
         }
     }
 
