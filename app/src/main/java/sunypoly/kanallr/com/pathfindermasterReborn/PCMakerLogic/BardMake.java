@@ -258,7 +258,6 @@ public class BardMake extends Character {
               case 3: {
                   baseFortSave = 1;
                   baseAttackBonus[0] = 2;
-
                   LevelSavesUpdate();
                   bardSpellsKnown(level);
                   baseSpellsPerDay(level);
@@ -298,7 +297,6 @@ public class BardMake extends Character {
                   baseRefSave = 5;
                   baseWillSave = 5;
                   baseAttackBonus[0] = 4;
-
                   LevelSavesUpdate();
                   bardSpellsKnown(level);
                   baseSpellsPerDay(level);
