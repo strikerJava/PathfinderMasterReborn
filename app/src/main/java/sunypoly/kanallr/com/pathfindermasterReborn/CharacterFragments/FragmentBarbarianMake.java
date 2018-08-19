@@ -252,9 +252,10 @@ public class FragmentBarbarianMake extends Fragment implements View.OnClickListe
                              ViewGroup container, Bundle savedInstanceState) {
 
         //Inflate the layout for this fragment
+
         View returningView =  inflater.inflate(
                 R.layout.barbarian_make, container, false);
-        Button makeCharacter = (Button) returningView.findViewById(R.id.button);
+        Button makeCharacter = (Button) returningView.findViewById(R.id.spawnBarbButton);
         Button levelUpButton = (Button) returningView.findViewById(R.id.levelUpButton);
         makeCharacter.setOnClickListener(this);
         levelUpButton.setOnClickListener(this);
@@ -264,7 +265,7 @@ public class FragmentBarbarianMake extends Fragment implements View.OnClickListe
     @Override
     public void onClick(View view){
         switch(view.getId()){
-            case R.id.button:
+            case R.id.spawnBarbButton:
                 spawnBarbarian(view);
                 break;
             case R.id.levelUpButton:
