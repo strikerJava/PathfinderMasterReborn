@@ -40,7 +40,6 @@ public class FragmentFighterMake extends Fragment implements View.OnClickListene
                 break;
             default:
                 //do nothing
-
         }
     }
     public void spawnFighter(View view){
