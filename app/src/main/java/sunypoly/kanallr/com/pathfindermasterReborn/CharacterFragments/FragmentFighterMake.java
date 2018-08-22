@@ -26,7 +26,7 @@ public class FragmentFighterMake extends Fragment implements View.OnClickListene
         Button spawnFighter = (Button) returningView.findViewById(R.id.spawnFighterButton);
         Button levelUpFighter = (Button) returningView.findViewById(R.id.levelUpFighterButton);
         spawnFighter.setOnClickListener(this);
-        spawnFighter.setOnClickListener(this);
+        levelUpFighter.setOnClickListener(this);
         return returningView;
     }
     @Override
