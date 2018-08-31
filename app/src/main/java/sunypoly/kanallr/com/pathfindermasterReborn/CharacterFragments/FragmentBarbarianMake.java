@@ -16,6 +16,8 @@ import sunypoly.kanallr.com.pathfindermasterReborn.R;
 
 public class FragmentBarbarianMake extends Fragment implements View.OnClickListener {
     BarbarianMake barbOne;
+    Button makeCharacter;
+    Button levelUpButton;
     public void spawnBarbarian(View view){
         View thisView = getView();
         barbOne = new BarbarianMake();
@@ -255,10 +257,11 @@ public class FragmentBarbarianMake extends Fragment implements View.OnClickListe
 
         View returningView =  inflater.inflate(
                 R.layout.barbarian_make, container, false);
-        Button makeCharacter = (Button) returningView.findViewById(R.id.spawnBarbButton);
-        Button levelUpButton = (Button) returningView.findViewById(R.id.levelUpButton);
+         makeCharacter = (Button) returningView.findViewById(R.id.spawnBarbButton);
+         levelUpButton = (Button) returningView.findViewById(R.id.levelUpButton);
         makeCharacter.setOnClickListener(this);
         levelUpButton.setOnClickListener(this);
+        levelUpButton.setEnabled(false);
         return returningView;
     }
 
@@ -267,6 +270,7 @@ public class FragmentBarbarianMake extends Fragment implements View.OnClickListe
         switch(view.getId()){
             case R.id.spawnBarbButton:
                 spawnBarbarian(view);
+                levelUpButton.setEnabled(true);
                 break;
             case R.id.levelUpButton:
                 levelUpBarbButton(view);
