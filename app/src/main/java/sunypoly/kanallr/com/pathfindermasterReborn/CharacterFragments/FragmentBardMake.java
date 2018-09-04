@@ -18,6 +18,38 @@ public class FragmentBardMake extends Fragment implements View.OnClickListener {
     BardMake bardOne;
     Button spawnButton;
     Button levelUpButton;
+
+    @Override
+    public View onCreateView(LayoutInflater inflater,
+                             ViewGroup container, Bundle savedInstanceState) {
+        View returningView =inflater.inflate(
+                R.layout.bard_make, container, false);
+
+        spawnButton = (Button) returningView.findViewById(R.id.spawnBardButton);
+        levelUpButton = (Button) returningView.findViewById(R.id.levelBard);
+        spawnButton.setOnClickListener(this);
+        levelUpButton.setOnClickListener(this);
+        levelUpButton.setEnabled(false);
+
+        return returningView;
+    }
+
+    @Override
+    public void onClick(View view){
+        switch(view.getId()){
+            case R.id.spawnBardButton:
+                spawnBard(view);
+                levelUpButton.setEnabled(true);
+                break;
+            case R.id.levelBard:
+                levelUpBardButton(view);
+                break;
+            default:
+                //do nothing
+
+        }
+    }
+
     public void spawnBard(View view){
         View thisView = getView();
         bardOne = new BardMake();
@@ -303,36 +335,6 @@ public class FragmentBardMake extends Fragment implements View.OnClickListener {
         textTest = (TextView) thisView.findViewById(R.id.SpellsKnownAt6);
         textTest.setText(Integer.toString(bardOne.bardSpellsKnown[6]));
 
-    }
-    @Override
-    public View onCreateView(LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        View returningView =inflater.inflate(
-                R.layout.bard_make, container, false);
-
-         spawnButton = (Button) returningView.findViewById(R.id.spawnBardButton);
-         levelUpButton = (Button) returningView.findViewById(R.id.levelBard);
-        spawnButton.setOnClickListener(this);
-        levelUpButton.setOnClickListener(this);
-        levelUpButton.setEnabled(false);
-
-        return returningView;
-    }
-
-    @Override
-    public void onClick(View view){
-        switch(view.getId()){
-            case R.id.spawnBardButton:
-                spawnBard(view);
-                levelUpButton.setEnabled(true);
-                break;
-            case R.id.levelBard:
-                levelUpBardButton(view);
-                break;
-            default:
-                //do nothing
-
-        }
     }
 
 }
