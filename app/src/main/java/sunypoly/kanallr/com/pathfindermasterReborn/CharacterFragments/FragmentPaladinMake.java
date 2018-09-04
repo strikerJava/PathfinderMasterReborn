@@ -16,6 +16,8 @@ import sunypoly.kanallr.com.pathfindermasterReborn.R;
 
 public class FragmentPaladinMake extends Fragment  implements View.OnClickListener{
     PaladinMake paladinOne;
+    Button spawnPaladinButton;
+    Button levelUpPaladinButton;
     @Override
     public View onCreateView(LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -24,262 +26,265 @@ public class FragmentPaladinMake extends Fragment  implements View.OnClickListen
                 R.layout.paladin_make, container, false);
         //Inflate the layout for this fragment
 
-        Button spawnPaladinButton = (Button) returningView.findViewById(R.id.spawnPaladinButton);
-        Button levelUpPaladinButton = (Button) returningView.findViewById(R.id.levelUpPaladinButton);
+         spawnPaladinButton = (Button) returningView.findViewById(R.id.spawnPaladinButton);
+         levelUpPaladinButton = (Button) returningView.findViewById(R.id.levelUpPaladinButton);
         spawnPaladinButton.setOnClickListener(this);
         levelUpPaladinButton.setOnClickListener(this);
+        levelUpPaladinButton.setEnabled(false);
         return returningView;
     }
     @Override
     public void onClick(View view){
         switch(view.getId()){
             case R.id.spawnPaladinButton:
-                spawnPaladin(view);
+                spawnPaladin();
+                levelUpPaladinButton.setEnabled(true);
                 break;
             case R.id.levelUpPaladinButton:
-                levelUpPaladinButton(view);
+                levelUpPaladinButton();
                 break;
             default:
                 //do nothing
         }
     }
-    public void spawnPaladin(View view){
+    public void spawnPaladin(){
+        View currentView = getView();
         paladinOne = new PaladinMake();
         paladinOne.spawnLV1Paladin();
-        TextView textTest = (TextView) view.findViewById(R.id.firstNameID);
+        TextView textTest = (TextView) currentView.findViewById(R.id.firstNameID);
         textTest.setText(paladinOne.firstName);
 
-        textTest = (TextView) view.findViewById(R.id.lastNameID);
+        textTest = (TextView) currentView.findViewById(R.id.lastNameID);
         textTest.setText(paladinOne.lastName);
-        textTest = (TextView) view.findViewById(R.id.levelID);
+        textTest = (TextView) currentView.findViewById(R.id.levelID);
         textTest.setText("Lv: " + Integer.toString(paladinOne.level));
-        textTest = (TextView) view.findViewById(R.id.genderID);
+        textTest = (TextView) currentView.findViewById(R.id.genderID);
         textTest.setText(paladinOne.gender);
-        textTest = (TextView) view.findViewById(R.id.alignmentView);
+        textTest = (TextView) currentView.findViewById(R.id.alignmentView);
         textTest.setText(paladinOne.alignment);
-        textTest = (TextView) view.findViewById(R.id.sizeClassView);
+        textTest = (TextView) currentView.findViewById(R.id.sizeClassView);
         textTest.setText(paladinOne.sizeClass);
-        textTest = (TextView) view.findViewById(R.id.heightWord);
+        textTest = (TextView) currentView.findViewById(R.id.heightWord);
         textTest.setText(Integer.toString(paladinOne.sizeFeet) + "' "  + Integer.toString(paladinOne.sizeInches) + "''");
-        textTest = (TextView) view.findViewById(R.id.Weight);
+        textTest = (TextView) currentView.findViewById(R.id.Weight);
         textTest.setText(Integer.toString(paladinOne.weight) + "lbs");
-        textTest = (TextView) view.findViewById(R.id.ageView);
+        textTest = (TextView) currentView.findViewById(R.id.ageView);
         textTest.setText(Integer.toString(paladinOne.age));
-        textTest = (TextView) view.findViewById(R.id.hairView);
+        textTest = (TextView) currentView.findViewById(R.id.hairView);
         textTest.setText("hair: " + paladinOne.hair);
-        textTest = (TextView) view.findViewById(R.id.eyesView);
+        textTest = (TextView) currentView.findViewById(R.id.eyesView);
         textTest.setText("Eyes: " +paladinOne.eyes);
-        textTest = (TextView) view.findViewById(R.id.strNumView);
+        textTest = (TextView) currentView.findViewById(R.id.strNumView);
         textTest.setText(Integer.toString(paladinOne.characterStats[0]));
-        textTest = (TextView) view.findViewById(R.id.dexNumView);
+        textTest = (TextView) currentView.findViewById(R.id.dexNumView);
         textTest.setText(Integer.toString(paladinOne.characterStats[1]));
-        textTest = (TextView) view.findViewById(R.id.conNumView);
+        textTest = (TextView) currentView.findViewById(R.id.conNumView);
         textTest.setText(Integer.toString(paladinOne.characterStats[2]));
-        textTest = (TextView) view.findViewById(R.id.intNumView);
+        textTest = (TextView) currentView.findViewById(R.id.intNumView);
         textTest.setText(Integer.toString(paladinOne.characterStats[3]));
-        textTest = (TextView) view.findViewById(R.id.wisNumView);
+        textTest = (TextView) currentView.findViewById(R.id.wisNumView);
         textTest.setText(Integer.toString(paladinOne.characterStats[4]));
-        textTest = (TextView) view.findViewById(R.id.chaNumView);
+        textTest = (TextView) currentView.findViewById(R.id.chaNumView);
         textTest.setText(Integer.toString(paladinOne.characterStats[5]));
-        textTest = (TextView) view.findViewById(R.id.strModNumView);
+        textTest = (TextView) currentView.findViewById(R.id.strModNumView);
         textTest.setText(Integer.toString(paladinOne.characterMods[0]));
-        textTest = (TextView) view.findViewById(R.id.dexModNumView);
+        textTest = (TextView) currentView.findViewById(R.id.dexModNumView);
         textTest.setText(Integer.toString(paladinOne.characterMods[1]));
-        textTest = (TextView) view.findViewById(R.id.conModNumView);
+        textTest = (TextView) currentView.findViewById(R.id.conModNumView);
         textTest.setText(Integer.toString(paladinOne.characterMods[2]));
-        textTest = (TextView) view.findViewById(R.id.intModNumView);
+        textTest = (TextView) currentView.findViewById(R.id.intModNumView);
         textTest.setText(Integer.toString(paladinOne.characterMods[3]));
-        textTest = (TextView) view.findViewById(R.id.wisModNumView);
+        textTest = (TextView) currentView.findViewById(R.id.wisModNumView);
         textTest.setText(Integer.toString(paladinOne.characterMods[4]));
-        textTest = (TextView) view.findViewById(R.id.chaModNumView);
+        textTest = (TextView) currentView.findViewById(R.id.chaModNumView);
         textTest.setText(Integer.toString(paladinOne.characterMods[5]));
-        textTest = (TextView) view.findViewById(R.id.chaModNumView);
+        textTest = (TextView) currentView.findViewById(R.id.chaModNumView);
         textTest.setText(Integer.toString(paladinOne.characterMods[5]));
-        textTest = (TextView) view.findViewById(R.id.fortTotalNumView);
+        textTest = (TextView) currentView.findViewById(R.id.fortTotalNumView);
         textTest.setText(Integer.toString(paladinOne.fortSave));
-        textTest = (TextView) view.findViewById(R.id.refTotalNumView);
+        textTest = (TextView) currentView.findViewById(R.id.refTotalNumView);
         textTest.setText(Integer.toString(paladinOne.refSave));
-        textTest = (TextView) view.findViewById(R.id.willTotalNumView);
+        textTest = (TextView) currentView.findViewById(R.id.willTotalNumView);
         textTest.setText(Integer.toString(paladinOne.willSave));
-        textTest = (TextView) view.findViewById(R.id.willBaseNumView);
+        textTest = (TextView) currentView.findViewById(R.id.willBaseNumView);
         textTest.setText(Integer.toString(paladinOne.baseWillSave));
-        textTest = (TextView) view.findViewById(R.id.refBaseNumView);
+        textTest = (TextView) currentView.findViewById(R.id.refBaseNumView);
         textTest.setText(Integer.toString(paladinOne.baseRefSave));
-        textTest = (TextView) view.findViewById(R.id.fortBaseNumView);
+        textTest = (TextView) currentView.findViewById(R.id.fortBaseNumView);
         textTest.setText(Integer.toString(paladinOne.baseFortSave));
-        textTest = (TextView) view.findViewById(R.id.acTotalNumView);
+        textTest = (TextView) currentView.findViewById(R.id.acTotalNumView);
         textTest.setText(Integer.toString(paladinOne.AC));
-        textTest = (TextView) view.findViewById(R.id.flatTotalNumView);
+        textTest = (TextView) currentView.findViewById(R.id.flatTotalNumView);
         textTest.setText(Integer.toString(paladinOne.FlatFootAC));
-        textTest = (TextView) view.findViewById(R.id.touchTotalNumView);
+        textTest = (TextView) currentView.findViewById(R.id.touchTotalNumView);
         textTest.setText(Integer.toString(paladinOne.touchAC));
         if(paladinOne.AttackBonus[0] != -99){
-            textTest = (TextView) view.findViewById(R.id.attackBonus1);
+            textTest = (TextView) currentView.findViewById(R.id.attackBonus1);
             textTest.setText(Integer.toString(paladinOne.AttackBonus[0]));
         }
         if(paladinOne.AttackBonus[1] != -99){
-            textTest = (TextView) view.findViewById(R.id.attackBonus2);
+            textTest = (TextView) currentView.findViewById(R.id.attackBonus2);
             textTest.setText(Integer.toString(paladinOne.AttackBonus[1]));
         }
         if(paladinOne.AttackBonus[2] != -99){
-            textTest = (TextView) view.findViewById(R.id.attackBonus3);
+            textTest = (TextView) currentView.findViewById(R.id.attackBonus3);
             textTest.setText(Integer.toString(paladinOne.AttackBonus[2]));
         }
         if(paladinOne.AttackBonus[3] != -99){
-            textTest = (TextView) view.findViewById(R.id.attackBonus4);
+            textTest = (TextView) currentView.findViewById(R.id.attackBonus4);
             textTest.setText(Integer.toString(paladinOne.AttackBonus[3]));
         }
         if(paladinOne.baseAttackBonus[0] != -99){
-            textTest = (TextView) view.findViewById(R.id.attackbaseBonus1);
+            textTest = (TextView) currentView.findViewById(R.id.attackbaseBonus1);
             textTest.setText(Integer.toString(paladinOne.baseAttackBonus[0]));
         }
         if(paladinOne.baseAttackBonus[1] != -99){
-            textTest = (TextView) view.findViewById(R.id.attackbaseBonus2);
+            textTest = (TextView) currentView.findViewById(R.id.attackbaseBonus2);
             textTest.setText(Integer.toString(paladinOne.baseAttackBonus[1]));
         }
         if(paladinOne.baseAttackBonus[2] != -99){
-            textTest = (TextView) view.findViewById(R.id.attackbaseBonus3);
+            textTest = (TextView) currentView.findViewById(R.id.attackbaseBonus3);
             textTest.setText(Integer.toString(paladinOne.baseAttackBonus[2]));
         }
         if(paladinOne.baseAttackBonus[3] != -99){
-            textTest = (TextView) view.findViewById(R.id.attackbaseBonus4);
+            textTest = (TextView) currentView.findViewById(R.id.attackbaseBonus4);
             textTest.setText(Integer.toString(paladinOne.baseAttackBonus[3]));
         }
-        textTest = (TextView) view.findViewById(R.id.InitiativeNum);
+        textTest = (TextView) currentView.findViewById(R.id.InitiativeNum);
         textTest.setText(Integer.toString(paladinOne.Initiative));
-        textTest = (TextView) view.findViewById(R.id.hitDieNum);
+        textTest = (TextView) currentView.findViewById(R.id.hitDieNum);
         textTest.setText(Integer.toString(paladinOne.hitDie1D));
-        textTest = (TextView) view.findViewById(R.id.ranksNum);
+        textTest = (TextView) currentView.findViewById(R.id.ranksNum);
         textTest.setText(Integer.toString(paladinOne.ranksPerLevelBase));
-        textTest = (TextView) view.findViewById(R.id.moveSpeedNum);
+        textTest = (TextView) currentView.findViewById(R.id.moveSpeedNum);
         textTest.setText(Integer.toString(paladinOne.travelSpeed));
-        textTest = (TextView) view.findViewById(R.id.weaponProfString);
+        textTest = (TextView) currentView.findViewById(R.id.weaponProfString);
         textTest.setText(paladinOne.weaponProf);
-        textTest = (TextView) view.findViewById(R.id.armProfString);
+        textTest = (TextView) currentView.findViewById(R.id.armProfString);
         textTest.setText(paladinOne.armorProf);
-        textTest = (TextView) view.findViewById(R.id.raceView);
+        textTest = (TextView) currentView.findViewById(R.id.raceView);
         textTest.setText(paladinOne.race);
-        textTest = (TextView) view.findViewById(R.id.InitiativeNum);
+        textTest = (TextView) currentView.findViewById(R.id.InitiativeNum);
         textTest.setText(" +" + Integer.toString(paladinOne.Initiative));
-        textTest = (TextView) view.findViewById(R.id.specialSkills);
+        textTest = (TextView) currentView.findViewById(R.id.specialSkills);
         textTest.setText(paladinOne.SpecialSkills[0]);
         textTest.append(", " + paladinOne.SpecialSkills[1]);
 
-        textTest = (TextView) view.findViewById(R.id.SpellsAt0);
+        textTest = (TextView) currentView.findViewById(R.id.SpellsAt0);
         textTest.setText("0");
 
-        textTest = (TextView) view.findViewById(R.id.SpellsAt1);
-        textTest.setText("0");
-
-
-        textTest = (TextView) view.findViewById(R.id.SpellsAt2);
-        textTest.setText("0");
-
-        textTest = (TextView) view.findViewById(R.id.SpellsAt3);
+        textTest = (TextView) currentView.findViewById(R.id.SpellsAt1);
         textTest.setText("0");
 
 
-        textTest = (TextView) view.findViewById(R.id.SpellsAt4);
+        textTest = (TextView) currentView.findViewById(R.id.SpellsAt2);
+        textTest.setText("0");
+
+        textTest = (TextView) currentView.findViewById(R.id.SpellsAt3);
+        textTest.setText("0");
+
+
+        textTest = (TextView) currentView.findViewById(R.id.SpellsAt4);
         textTest.setText("0");
 
 
         //incomplete*/
 
     }
-    public void levelUpPaladinButton(View view){
-
+    public void levelUpPaladinButton(){
+        View currentView = getView();
         paladinOne.levelUpPaladin();
-        TextView textTest = (TextView) view.findViewById(R.id.firstNameID);
+        TextView textTest = (TextView) currentView.findViewById(R.id.firstNameID);
         textTest.setText(paladinOne.firstName);
 
 
-        textTest = (TextView) view.findViewById(R.id.levelID);
+        textTest = (TextView) currentView.findViewById(R.id.levelID);
         textTest.setText("Lv: " + Integer.toString(paladinOne.level));
-        textTest = (TextView) view.findViewById(R.id.strNumView);
+        textTest = (TextView) currentView.findViewById(R.id.strNumView);
         textTest.setText(Integer.toString(paladinOne.characterStats[0]));
-        textTest = (TextView) view.findViewById(R.id.dexNumView);
+        textTest = (TextView) currentView.findViewById(R.id.dexNumView);
         textTest.setText(Integer.toString(paladinOne.characterStats[1]));
-        textTest = (TextView) view.findViewById(R.id.conNumView);
+        textTest = (TextView) currentView.findViewById(R.id.conNumView);
         textTest.setText(Integer.toString(paladinOne.characterStats[2]));
-        textTest = (TextView) view.findViewById(R.id.intNumView);
+        textTest = (TextView) currentView.findViewById(R.id.intNumView);
         textTest.setText(Integer.toString(paladinOne.characterStats[3]));
-        textTest = (TextView) view.findViewById(R.id.wisNumView);
+        textTest = (TextView) currentView.findViewById(R.id.wisNumView);
         textTest.setText(Integer.toString(paladinOne.characterStats[4]));
-        textTest = (TextView) view.findViewById(R.id.chaNumView);
+        textTest = (TextView) currentView.findViewById(R.id.chaNumView);
         textTest.setText(Integer.toString(paladinOne.characterStats[5]));
-        textTest = (TextView) view.findViewById(R.id.strModNumView);
+        textTest = (TextView) currentView.findViewById(R.id.strModNumView);
         textTest.setText(Integer.toString(paladinOne.characterMods[0]));
-        textTest = (TextView) view.findViewById(R.id.dexModNumView);
+        textTest = (TextView) currentView.findViewById(R.id.dexModNumView);
         textTest.setText(Integer.toString(paladinOne.characterMods[1]));
-        textTest = (TextView) view.findViewById(R.id.conModNumView);
+        textTest = (TextView) currentView.findViewById(R.id.conModNumView);
         textTest.setText(Integer.toString(paladinOne.characterMods[2]));
-        textTest = (TextView) view.findViewById(R.id.intModNumView);
+        textTest = (TextView) currentView.findViewById(R.id.intModNumView);
         textTest.setText(Integer.toString(paladinOne.characterMods[3]));
-        textTest = (TextView) view.findViewById(R.id.wisModNumView);
+        textTest = (TextView) currentView.findViewById(R.id.wisModNumView);
         textTest.setText(Integer.toString(paladinOne.characterMods[4]));
-        textTest = (TextView) view.findViewById(R.id.chaModNumView);
+        textTest = (TextView) currentView.findViewById(R.id.chaModNumView);
         textTest.setText(Integer.toString(paladinOne.characterMods[5]));
-        textTest = (TextView) view.findViewById(R.id.chaModNumView);
+        textTest = (TextView) currentView.findViewById(R.id.chaModNumView);
         textTest.setText(Integer.toString(paladinOne.characterMods[5]));
-        textTest = (TextView) view.findViewById(R.id.fortTotalNumView);
+        textTest = (TextView) currentView.findViewById(R.id.fortTotalNumView);
         textTest.setText(Integer.toString(paladinOne.fortSave));
-        textTest = (TextView) view.findViewById(R.id.refTotalNumView);
+        textTest = (TextView) currentView.findViewById(R.id.refTotalNumView);
         textTest.setText(Integer.toString(paladinOne.refSave));
-        textTest = (TextView) view.findViewById(R.id.willTotalNumView);
+        textTest = (TextView) currentView.findViewById(R.id.willTotalNumView);
         textTest.setText(Integer.toString(paladinOne.willSave));
-        textTest = (TextView) view.findViewById(R.id.willBaseNumView);
+        textTest = (TextView) currentView.findViewById(R.id.willBaseNumView);
         textTest.setText(Integer.toString(paladinOne.baseWillSave));
-        textTest = (TextView) view.findViewById(R.id.refBaseNumView);
+        textTest = (TextView) currentView.findViewById(R.id.refBaseNumView);
         textTest.setText(Integer.toString(paladinOne.baseRefSave));
-        textTest = (TextView) view.findViewById(R.id.fortBaseNumView);
+        textTest = (TextView) currentView.findViewById(R.id.fortBaseNumView);
         textTest.setText(Integer.toString(paladinOne.baseFortSave));
-        textTest = (TextView) view.findViewById(R.id.acTotalNumView);
+        textTest = (TextView) currentView.findViewById(R.id.acTotalNumView);
         textTest.setText(Integer.toString(paladinOne.AC));
-        textTest = (TextView) view.findViewById(R.id.flatTotalNumView);
+        textTest = (TextView) currentView.findViewById(R.id.flatTotalNumView);
         textTest.setText(Integer.toString(paladinOne.FlatFootAC));
-        textTest = (TextView) view.findViewById(R.id.touchTotalNumView);
+        textTest = (TextView) currentView.findViewById(R.id.touchTotalNumView);
         textTest.setText(Integer.toString(paladinOne.touchAC));
         if(paladinOne.AttackBonus[0] != -99){
-            textTest = (TextView) view.findViewById(R.id.attackBonus1);
+            textTest = (TextView) currentView.findViewById(R.id.attackBonus1);
             textTest.setText(Integer.toString(paladinOne.AttackBonus[0]));
         }
         if(paladinOne.AttackBonus[1] != -99){
-            textTest = (TextView) view.findViewById(R.id.attackBonus2);
+            textTest = (TextView) currentView.findViewById(R.id.attackBonus2);
             textTest.setText(Integer.toString(paladinOne.AttackBonus[1]));
         }
         if(paladinOne.AttackBonus[2] != -99){
-            textTest = (TextView) view.findViewById(R.id.attackBonus3);
+            textTest = (TextView) currentView.findViewById(R.id.attackBonus3);
             textTest.setText(Integer.toString(paladinOne.AttackBonus[2]));
         }
         if(paladinOne.AttackBonus[3] != -99){
-            textTest = (TextView) view.findViewById(R.id.attackBonus4);
+            textTest = (TextView) currentView.findViewById(R.id.attackBonus4);
             textTest.setText(Integer.toString(paladinOne.AttackBonus[3]));
         }
         if(paladinOne.baseAttackBonus[0] != -99){
-            textTest = (TextView) view.findViewById(R.id.attackbaseBonus1);
+            textTest = (TextView) currentView.findViewById(R.id.attackbaseBonus1);
             textTest.setText(Integer.toString(paladinOne.baseAttackBonus[0]));
         }
         if(paladinOne.baseAttackBonus[1] != -99){
-            textTest = (TextView) view.findViewById(R.id.attackbaseBonus2);
+            textTest = (TextView) currentView.findViewById(R.id.attackbaseBonus2);
             textTest.setText(Integer.toString(paladinOne.baseAttackBonus[1]));
         }
         if(paladinOne.baseAttackBonus[2] != -99){
-            textTest = (TextView) view.findViewById(R.id.attackbaseBonus3);
+            textTest = (TextView) currentView.findViewById(R.id.attackbaseBonus3);
             textTest.setText(Integer.toString(paladinOne.baseAttackBonus[2]));
         }
         if(paladinOne.baseAttackBonus[3] != -99){
-            textTest = (TextView) view.findViewById(R.id.attackbaseBonus4);
+            textTest = (TextView) currentView.findViewById(R.id.attackbaseBonus4);
             textTest.setText(Integer.toString(paladinOne.baseAttackBonus[3]));
         }
-        textTest = (TextView) view.findViewById(R.id.InitiativeNum);
+        textTest = (TextView) currentView.findViewById(R.id.InitiativeNum);
         textTest.setText(Integer.toString(paladinOne.Initiative));
 
-        textTest = (TextView) view.findViewById(R.id.moveSpeedNum);
+        textTest = (TextView) currentView.findViewById(R.id.moveSpeedNum);
         textTest.setText(Integer.toString(paladinOne.travelSpeed));
-        textTest = (TextView) view.findViewById(R.id.InitiativeNum);
+        textTest = (TextView) currentView.findViewById(R.id.InitiativeNum);
         textTest.setText(" +" + Integer.toString(paladinOne.Initiative));
 
-        textTest = (TextView) view.findViewById(R.id.specialSkills);
+        textTest = (TextView) currentView.findViewById(R.id.specialSkills);
 
 
         textTest.setText("");
@@ -290,24 +295,24 @@ public class FragmentPaladinMake extends Fragment  implements View.OnClickListen
         }
 
         if(paladinOne.totalPaladinSpells[0] != -99){
-            textTest = (TextView) view.findViewById(R.id.SpellsAt0);
+            textTest = (TextView) currentView.findViewById(R.id.SpellsAt0);
             textTest.setText("");
         }
         if(paladinOne.totalPaladinSpells[1] != -99){
-            textTest = (TextView) view.findViewById(R.id.SpellsAt1);
+            textTest = (TextView) currentView.findViewById(R.id.SpellsAt1);
             textTest.setText(Integer.toString(paladinOne.totalPaladinSpells[1]));
 
         }
         if(paladinOne.totalPaladinSpells[2] != -99){
-            textTest = (TextView) view.findViewById(R.id.SpellsAt2);
+            textTest = (TextView) currentView.findViewById(R.id.SpellsAt2);
             textTest.setText(Integer.toString(paladinOne.totalPaladinSpells[2]));
         }
         if(paladinOne.totalPaladinSpells[3] != -99){
-            textTest = (TextView) view.findViewById(R.id.SpellsAt3);
+            textTest = (TextView) currentView.findViewById(R.id.SpellsAt3);
             textTest.setText(Integer.toString(paladinOne.totalPaladinSpells[3]));
         }
         if(paladinOne.totalPaladinSpells[4] != -99){
-            textTest = (TextView) view.findViewById(R.id.SpellsAt4);
+            textTest = (TextView) currentView.findViewById(R.id.SpellsAt4);
             textTest.setText(Integer.toString(paladinOne.totalPaladinSpells[4]));
         }
 
