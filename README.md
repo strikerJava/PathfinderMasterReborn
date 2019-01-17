@@ -5,20 +5,17 @@ This is a pull of my capstone from college. There is a ton that's wrong with thi
 PathfinderMaster, a tool to help people generate a character for Pathfinder as quick as possible.
 Features: 
 	Generate a player character as quick as possible
-	Dice rolling
+	Basic Dice rolling
 * Quick summary
-	Hit generate a character and you get a character. The end
+	Hit generate a character and you get a character.
 * Version
 	1.0.0
 	
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
-
 ### How do I get set up? ###
 
 sqlite @ here https://bitbucket.org/xerial/sqlite-jdbc/downloads
-	You must download sqlite and import it into librarys. I'm going to convert this over to rooms probably so we'll not
-	need this in the future.
-	
+	You must download sqlite and import it into librarys. 
+	This will be stripped out in a future update. 
 * Summary of set up
 	Import it and compile for debug
 	
@@ -36,7 +33,7 @@ sqlite @ here https://bitbucket.org/xerial/sqlite-jdbc/downloads
 
 ### Contribution guidelines ###
 
-Do your best? 
+Pick a ticket, and get working. I would prefer agile branching with a pull request. 
 
 
 ### Who do I talk to? ###
